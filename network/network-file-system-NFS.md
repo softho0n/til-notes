@@ -92,7 +92,7 @@
     df -h
     
     # 아래와 비슷한 형태로 나온다면 정상적으로 마운트가 되었을 것이다.
-    Filesystem           Size  Used Avail Use% Mounted on
-    100.100.100.1:/data  164T   69T   95T  43% /data
-    tmpfs                 13G   20K   13G   1% /run/user/125
+    Filesystem                    Size  Used Avail Use%  Mounted on
+    100.100.100.0:/mnt/nfs-share  164T   69T   95T  43%  /mnt/nfs-client
+    tmpfs                         13G    20K   13G   1%  /run/user/125
     ```
