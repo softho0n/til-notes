@@ -84,7 +84,7 @@
     kind: Pod
     metadata:
       name: www-vol
-    	namespace: jason
+      namespace: jason
     spec:
       containers:
       - name: nginx
