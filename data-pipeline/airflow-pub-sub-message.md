@@ -29,14 +29,13 @@
     from airflow.providers.google.cloud.sensors.pubsub import PubSubPullSensor
     
     def print_msg(**context):
-    		# task_instance에 접근해 xcom 타입으로 데이터에 접근할 수 있다.
-    		pub_sub_job_return_val = context['task_instance'].xcom_pull(task_ids='pull_msg')
-    	
-    		for message in pub_sub_job_return_val: # 최대 50개의 메시지가 함께 전달된다.
-    				
-    				# pub/sub 메시지는 자동적으로 base64으로 인코딩 되므로, 다시 디코딩 과정이 필요하다.
-    				decoded_data = base64.b64decode(message['message']['data']).decode('utf-8-sig')
-    				print(decoded_data)
+        # task_instance에 접근해 xcom 타입으로 데이터에 접근할 수 있다.
+        pub_sub_job_return_val = context['task_instance'].xcom_pull(task_ids='pull_msg')
+    
+        for message in pub_sub_job_return_val: # 최대 50개의 메시지가 함께 전달된다.
+            # pub/sub 메시지는 자동적으로 base64으로 인코딩 되므로, 다시 디코딩 과정이 필요하다.
+            decoded_data = base64.b64decode(message['message']['data']).decode('utf-8-sig')
+            print(decoded_data)
     
     if __name__ == "__main__":
         with models.DAG(
@@ -53,9 +52,9 @@
                 max_messages=50, # 최대 50개 메시지만 가져온다.
             )
     
-    				print_msg_job = PythonOperator(task_id="print_pub_sub_msg", python_callable=print_msg)
+            print_msg_job = PythonOperator(task_id="print_pub_sub_msg", python_callable=print_msg)
     				
-    				(
+            (
                 pull_msg
                 >> youtube_api_result
             )
