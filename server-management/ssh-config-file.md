@@ -1,4 +1,4 @@
-# Secure Shell config file
+# Secure Shell `config` file
 
 - Secure shell을 통해 원격 접속으로 서버환경에서 작업하는 경우가 많다.
 - 호스트명, 포트, 유저네임을 항상 입력해서 접속하는 것은 번거로운 일이다.
@@ -10,7 +10,6 @@
     ```
     
 - 그 뒤, `~/.ssh` 디렉토리로 이동한다.
-    
     ```bash
     cd ~/.ssh
     ```
