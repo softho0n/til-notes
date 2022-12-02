@@ -1,4 +1,4 @@
-# [conda] miniconda 설치
+# Miniconda 설치
 
 ## Install miniconda
 
